@@ -3,9 +3,9 @@ pipeline{
   
   stages{
   
-    stage('Hello'){    
+    stage('Checkout'){    
       steps {
-        echo 'Hello World!'
+        checkout([$class: 'GitSCM', branches: [[name: '*/Dev']], extensions: [], userRemoteConfigs: [[credentialsId: '74ae08db-ed5b-4d86-8335-ac37ffa208e2', url: 'https://github.com/Jalda-Saikumar/sample-repo.git']]])
       }    
     }
     stage('Building'){    
